@@ -4,7 +4,7 @@ Description = Todo Service
 Environment=REDIS_HOST=172.31.23.102
 ExecStart=/bin/node /root/scripting/Todo/todo/server.js
 SyslogIdentifier=todo
-Restart=On-Failure
+Restart=ON-FAILURE
 
 [Install]
 WantedBy=multi-user.target
