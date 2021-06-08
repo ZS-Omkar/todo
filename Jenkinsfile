@@ -1,30 +1,9 @@
-pipeline {
-  agent {
-    label 'NODEJS'
-  }
+@Library('todo') _
 
-  stages {
-    stage ('Dependencies install') {
-        steps {
-        sh '''
-        npm install
-        '''
-        }
-    }
-
-    stage('Prepare Artifacts') {
-       steps {
-       sh '''
-         zip -r ../todo.zip *
-       '''
-       }
-    }
-    stage('Upload Artifacts') {
-        steps {
-            sh '''
-            curl -v -u admin:Omkar@123 --upload-file /home/ubuntu/workspace/todo.zip http://172.31.4.7:8081/repository/todo/todo.zip
-            '''
-        }
-    }
-  }
-}
+todo(
+   COMPONENT           : 'frontend',
+   PROJECT_NAME       :  "todo",
+   SLAVE_LABEL        :  "NODEJS",
+   SKIP_NEXUS_UPLOAD  :   false,
+   APP_TYPE           :  "NODEJS"
+)
