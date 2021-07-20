@@ -1,7 +1,7 @@
 [Unit]
 Description = Todo Service
 [Service]
-Environment=REDIS_HOST=172.31.23.102
+Environment=REDIS_HOST=172.31.0.187
 ExecStart=/bin/node /root/scripting/Todo/todo/server.js
 SyslogIdentifier=todo
 Restart=on-failure
